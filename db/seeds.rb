@@ -1,7 +1,24 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+require 'rest-client'
+
+puts "Getting Games Data"
+    def api_key
+        ENV["API_KEY"]
+    end
+
+    def games_dataset
+        api_data = { key: api_key }
+        games = RestClient.get("https://api.rawg.io/api/games?key=#{api_data[:key]}")
+        games_array = JSON.parse(games)["results"]
+        games_array.each do |g|
+            Game.create(
+                title: g["name"],
+                genre: g["genres"][0]["name"],
+                platform: g["platforms"][0]["platform"]["name"],
+                image: g["background_image"]
+            )
+        end
+
+
+    end
+games_dataset() 
+puts "Seeding Games Data"
