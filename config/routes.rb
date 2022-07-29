@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   get 'me', to: "users#show"
 
   # create new session
-  post "/login", to: "sessions#create"
+  post "/login", to: "session#create"
 
   # destroys session
-  delete "/logout", to: "sessions#destroy"
+  delete "/logout", to: "session#destroy"
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
