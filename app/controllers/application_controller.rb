@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-rescue_from ActiveRecord::Invalid, with: :render_invalid
+rescue_from ActiveRecord::RecordInvalid, with: :render_invalid
 rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
     include ActionController::Cookies
 
