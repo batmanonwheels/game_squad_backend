@@ -9,6 +9,9 @@ gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 # # Use sqlite3 as the database for Active Record
 # gem "sqlite3", "~> 1.4"
 
+# adding active model for serializer
+gem 'active_model_serializers'
+
 # Use PostGreSQL
 gem 'pg'
 
@@ -35,6 +38,8 @@ gem "bootsnap", require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
+
+gem 'net-http'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
