@@ -1,5 +1,5 @@
 class ReviewWithGameSerializer < ActiveModel::Serializer
   attributes :id, :title, :description, :upvotes, :downvotes, :rating
-  belongs_to :game
-  belongs_to :user
+  has_one :game
+  has_one :user
 end
