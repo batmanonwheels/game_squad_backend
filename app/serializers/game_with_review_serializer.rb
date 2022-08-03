@@ -1,4 +1,4 @@
 class GameWithReviewSerializer < ActiveModel::Serializer
-  attributes :id, :title,:genre,:image
+  attributes :id, :title,:genre,:image, :platform
   has_many :reviews
 end
