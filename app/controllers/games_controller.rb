@@ -2,7 +2,7 @@ class GamesController < ApplicationController
 
     before_action :set_game, only: :show
     def index 
-        render json: Game.all, serializer: GameWithReviewSerializer, status: :ok
+        render json: Game.all, status: :ok
     end
 
     def show 
