@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
 
     before_action :set_review, only: [:show, :destroy, :update]
     def index
-        render json: Review.all, serializer: ReviewWithGameSerializer, status: :ok
+        render json: Review.all, status: :ok
     end
 
     def create
@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
     end
 
     def show
-        render json: @review, status: :ok, include: :user
+        render json: @review, serializer: ReviewSerializer, status: :ok
     end
 
     def destroy
