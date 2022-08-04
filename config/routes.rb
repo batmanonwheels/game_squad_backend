@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   resources :reviews
   resources :games, only: [:index, :show]
-  resources :users, only: [:index]
+  resources :users, only: [:index, :show]
   root 'welcome#index'
   # create user signup
   post "/signup", to: "users#create"
 
-  # show authenticated user 
+  # show authenticated user
   get '/myaccount', to: "users#show"
 
   # create new session

@@ -1,17 +1,17 @@
 class ReviewsController < ApplicationController
 
     before_action :set_review, only: [:show, :destroy, :update]
-    def index 
-        render json: Review.all,status: :ok
+    def index
+        render json: Review.all, serializer: ReviewWithGameSerializer, status: :ok
     end
 
-    def create 
+    def create
         new_review = Review.create!(review_params)
         render json: new_review, status: :created
     end
 
     def show
-        render json: @review,status: :ok, include: :user
+        render json: @review, status: :ok, include: :user
     end
 
     def destroy
@@ -20,11 +20,11 @@ class ReviewsController < ApplicationController
     end
 
     def update
-        @review.update!(review_params)
+        @review.update!(vote_params)
         render json: @review, status: :accepted
     end
-    
-    private 
+
+    private
 
     def set_review
         @review = Review.find(params[:id])
@@ -48,6 +48,4 @@ class ReviewsController < ApplicationController
             :downvotes
         )
     end
-
-
 end
