@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 
-    before_action :set_review, only: [:show, :destroy]
+    before_action :set_review, only: [:show, :destroy, :update]
     def index 
         render json: Review.all,status: :ok
     end
